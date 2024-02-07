@@ -14,6 +14,7 @@
  *= require_self
  */
 @import "sessions.css";
+@import "member3.css";
 
 * {
   font-family: "Gill Sans", sans-serif;
