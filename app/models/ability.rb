@@ -31,5 +31,7 @@ class Ability
     nil unless user.present?
 
     can :manage, Recipe, user_id: user.id
+    can :destroy, Inventory, user_id: user.id
+    can :read, Inventory, user_id: user.id
   end
 end
