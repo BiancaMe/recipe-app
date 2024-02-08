@@ -14,7 +14,17 @@ Rails.application.routes.draw do
   # Can be used by load balancers and uptime monitors to verify that the app is live.
   root to: "recipes#index"
 
-  get 'public_recipes', to: 'recipes#public_recipes'
+
+  resources :recipes, only: [:public_index, :show] do 
+    member do
+      patch :toggle_public
+      get 'modal'
+
+      get '/shopping_list', to: 'recipes#shopping_list', as: 'shopping_list'
+    end
+  end
+
+  resources :recipes, only: [:index, :new, :create, :destroy, :show]
 
   # Defines the root path route ("/")
   # root "posts#index"
