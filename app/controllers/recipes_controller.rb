@@ -1,14 +1,13 @@
 class RecipesController < ApplicationController
-
   def show
-  @recipe = Recipe.find(params[:id])
+    @recipe = Recipe.find(params[:id])
   end
 
   def public_recipes
     @recipes = Recipe.includes(:recipe_foods, recipe_foods: :food).where(public: true)
   end
 
-  def modal 
+  def modal
     @recipe = Recipe.find(params[:id])
     @inventories = Inventory.all
   end
@@ -35,5 +34,4 @@ class RecipesController < ApplicationController
     @amount = @shop_list.count
     @total_price = @shop_list.sum { |item| item[:shop_price] }
   end
-
 end
