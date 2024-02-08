@@ -1,0 +1,21 @@
+<%= turbo_frame_tag "modal" do %>
+    <div id='pop' class='modal'>
+       <%= link_to "Close", "#", data: {controller: "modals", action: "modals#close" }, class:'btn-modal' %>
+       <h2>Generating Shopping List</h2>
+       <div class='modal-description'>
+          <h3>Choose an inventory to use</h3>
+          <div class='modal-generate'>
+          <%= form_with model: @recipe, url: shopping_list_recipe_path, class: 'modal-form', data: { turbo: false }, method: :get do |f| %>
+               <select aria-label="Default select example" name="inventory_id" class='model-select'>
+                 <option selected>--Select Inventory--</option>
+                 <% @inventories.each do |inventory| %>
+                   <option value="<%= inventory.id %>"><%= inventory.name %></option>
+               <% end %>
+               </select>
+           <%= f.submit "Generate", class: "btn-generate" %>
+           <% end %>
+           </div>
+       </div>
+    </div>
+ <%end%>
+ 
