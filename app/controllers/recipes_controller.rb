@@ -34,4 +34,10 @@ class RecipesController < ApplicationController
     @amount = @shop_list.count
     @total_price = @shop_list.sum { |item| item[:shop_price] }
   end
+
+  def destroy
+    @recipe = Recipe.find(params[:id])
+    authorize! :destroy, @recipe
+    @recipe.destroy
+  end
 end

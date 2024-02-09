@@ -23,7 +23,8 @@
 .actions-button {
   background-color: blue;
   font-size: 1em;
-  padding: 0.5em 1em 0.5em 1em;
+  padding: 0.5em;
+  height: 40px;
   border-radius: 10%;
   color: rgb(223, 219, 219);
   border: none;

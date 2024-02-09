@@ -26,6 +26,8 @@ class Ability
     #
     # See the wiki for details:
     # https://github.com/CanCanCommunity/cancancan/blob/develop/docs/define_check_abilities.md
+    user ||= User.new # guest user (not logged in)
+    can :manage, Recipe, user_id: user.id
 
     can :read, Recipe, public: true
     nil unless user.present?

@@ -50,3 +50,5 @@ RSpec.describe User, type: :model do
     expect(user.macro).to eq(:has_many)
   end
 end
+Recipe.create(name: 'Pizza', preparation_time: 0.5, cooking_time: 30, description: 'Pizza', public: true,
+              user: first_user)
