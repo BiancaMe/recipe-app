@@ -59,6 +59,7 @@
             <td class="whitespace-nowrap px-6 py-4">$<%= food.food.price * food.quantity %></td>
             <td class="whitespace-nowrap px-6 py-4 cursor-pointer">
               <% if can? :destroy, @recipe %>
+              <div class="remove">
                 <%= form_with model: food, url: recipe_food_path(food), method: :delete do |form| %>
                   <%= form.submit "Remove", class: "px-4 py-2 bg-red-500 hover-bg-red-600 text-white font-medium rounded cursor-pointer" %>
                 <% end %>

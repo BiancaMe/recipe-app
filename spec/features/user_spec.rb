@@ -7,18 +7,13 @@ RSpec.describe 'User authentication', type: :feature do
 
   it 'allows a user to register' do
     visit new_user_registration_path
-
+    fill_in 'user_email', with: 'nekr@example.com'
     fill_in 'user_name', with: 'New User'
-    fill_in 'user_email', with: 'ner@example.com'
     fill_in 'user_password', with: 'password123'
     fill_in 'user_password_confirmation', with: 'password123'
     click_button 'Sign up'
-    sleep(1)
-    fill_in 'user_email', with: 'ner@example.com'
-    fill_in 'user_password', with: 'password123'
-    click_button 'Log in'
-    sleep(1)
-    expect(page).to have_text('You have to confirm your email address before continuing.')
+
+    expect(page).to have_text('A message with a confirmation link has been sent to your email address.')
   end
 
   it 'allows user to login' do
