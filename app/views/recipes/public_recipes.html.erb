@@ -2,7 +2,7 @@
     <h1>Public Recipes</h1>
     <ul class="public-recipes-list">
         <% @recipes.each do |recipe| %>
-        <%= link_to recipes_path(recipe.id) do %> 
+        <%= link_to recipe_path(recipe) do %> 
             <li class="public-item">
                 <div class = "author-container">
                     <h2 class="public-title"><%=recipe.name%></h2>
