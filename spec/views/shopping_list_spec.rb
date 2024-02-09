@@ -6,8 +6,6 @@ RSpec.describe 'recipes/shopping_list.html.erb', type: :view do
     assign(:recipe, Struct.new(:name).new('Pure'))
     assign(:total_price, 100)
     assign(:inventory, Struct.new(:name).new('Inventory'))
-
-
     shop_list = [
       { name: 'potato', quantity: 5, measurement_unit: 'kg', shop_price: 20 }
     ]
