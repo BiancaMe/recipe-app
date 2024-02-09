@@ -1,7 +1,15 @@
 class Ability
   include CanCan::Ability
 
-  def initialize(user)
+  def initialize(current_user)
+    user = current_user || User.new
+
+    can :destroy, Recipe, user_id: user.id
+    can :update, Recipe, user_id: user.id
+    can :read, Recipe, user_id: user.id
+    can :read, Recipe, public: true
+    can :destroy, Inventory, user_id: user.id
+    can :read, Inventory, user_id: user.id
     # Define abilities for the user here. For example:
     #
     #   return unless user.present?
@@ -26,12 +34,5 @@ class Ability
     #
     # See the wiki for details:
     # https://github.com/CanCanCommunity/cancancan/blob/develop/docs/define_check_abilities.md
-
-    can :read, Recipe, public: true
-    nil unless user.present?
-
-    can :manage, Recipe, user_id: user.id
-    can :destroy, Inventory, user_id: user.id
-    can :read, Inventory, user_id: user.id
   end
 end
