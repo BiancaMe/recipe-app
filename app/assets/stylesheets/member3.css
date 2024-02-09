@@ -27,6 +27,10 @@
   color: black;
 }
 
+.author-container {
+  color: black;
+}
+
 .p-delete {
   background-color: rgba(0, 0, 255, 0.676);
   font-size: 1em;
