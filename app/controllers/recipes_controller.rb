@@ -84,7 +84,7 @@ class RecipesController < ApplicationController
       end
       next unless quantity.positive?
 
-      shop_list << { name: rf.food.name, quantity: quantity, measurement_unit: rf.food.measurement_unit, shop_price: shop_price }
+      shop_list << { name: rf.food.name, quantity:, measurement_unit: rf.food.measurement_unit, shop_price: }
     end
     shop_list
   end
