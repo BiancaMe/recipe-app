@@ -66,6 +66,8 @@ class RecipesController < ApplicationController
       @inventory = Inventory.includes(inventory_foods: :food).find(params[:inventory_id])
       @shop_list = []
       @shop_list = calculate_shopping_list(@recipe, @inventory)
+      @amount = @shop_list.count
+      @total_price = @shop_list.sum { |item| item[:shop_price] }
     end
   end
 
