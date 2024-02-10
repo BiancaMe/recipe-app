@@ -14,6 +14,7 @@
   <% if user_signed_in? %>
     <nav class="nav">
       <ul class="nav-list">
+        <li class='nav-item'><a href="/recipes" data-turbolinks-track="true" class='nav-href'>Recipes</a></li>
         <li class='nav-item'><a href="/public_recipes" data-turbolinks-track="true" class='nav-href'>Public Recipes</a></li>
         <li class='nav-item'><a href="/inventories" data-turbolinks-track="true" class='nav-href'>Inventories</a></li>
         <li class='nav-item'><%= button_to "LogOut", destroy_user_session_path, method: :delete, class: "btn-out" %></li>
