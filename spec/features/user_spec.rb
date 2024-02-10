@@ -12,6 +12,7 @@ RSpec.describe 'User authentication', type: :feature do
     fill_in 'user_password', with: 'password123'
     fill_in 'user_password_confirmation', with: 'password123'
     click_button 'Sign up'
+    sleep(1)
 
     expect(page).to have_text('A message with a confirmation link has been sent to your email address.')
   end

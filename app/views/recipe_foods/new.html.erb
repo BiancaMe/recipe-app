@@ -1,4 +1,4 @@
-<div class="bg-white p-6 rounded-lg shadow-md w-[50%] mt-3">
+<div class="bg-white p-6 rounded-lg shadow-md w-[100%] mt-3">
     <h1 class="text-3xl font-extrabold mb-5 text-gray-800">Recipe Food Create</h1>
 
     <%= form_with model: [@recipe, @recipe_food], url: recipe_foods_path(@recipe), method: :post, class: "text-gray-800" do |form| %>
@@ -18,7 +18,7 @@
 
             <div class="mb-4 create">
                 <%= form.submit "Create Recipe Food" ,
-                    class: "px-4 py-2 bg-blue-500 hover:bg-blue-600 text-white font-medium rounded-lg cursor-pointer" %>
+                    class: " bg-blue-500 hover:bg-blue-600 text-white font-medium rounded-lg cursor-pointer" %>
             </div>
             <% end %>
 </div>

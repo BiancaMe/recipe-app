@@ -10,7 +10,7 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
+ <body>
   <% if user_signed_in? %>
     <nav class="nav">
       <ul class="nav-list">
@@ -20,7 +20,13 @@
         <li class='nav-item'><%= button_to "LogOut", destroy_user_session_path, method: :delete, class: "btn-out" %></li>
       </ul>
     </nav>
-  <% end %>
+    <% else %>
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class='nav-item'><%= link_to 'Log In', new_user_session_path,  class: "nav-link text-white"%></li>
+      </ul>
+    </nav>
+   <% end %>
   <p class="notice"><%= notice %></p>
   <p class="alert"><%= alert %></p>
     <%= yield %>

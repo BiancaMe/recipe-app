@@ -60,10 +60,19 @@ class RecipesController < ApplicationController
 
   def shopping_list
     @recipe = Recipe.includes(recipe_foods: :food).find(params[:id])
-    @inventory = Inventory.includes(inventory_foods: :food).find(params[:inventory_id])
-    @shop_list = []
-    @recipe.recipe_foods.each do |rf|
-      i_food = @inventory.inventory_foods.find_by(food: rf.food)
+    if params[:inventory_id] == '--Select Inventory--'
+      redirect_to recipe_path(@recipe), alert: 'Please add an inventory'
+    else
+      @inventory = Inventory.includes(inventory_foods: :food).find(params[:inventory_id])
+      @shop_list = []
+      @shop_list = calculate_shopping_list(@recipe, @inventory)
+    end
+  end
+
+  def calculate_shopping_list(recipe, inventory)
+    shop_list = []
+    recipe.recipe_foods.each do |rf|
+      i_food = inventory.inventory_foods.find_by(food: rf.food)
       if i_food.nil?
         quantity = rf.quantity
         shop_price = quantity * rf.food.price
@@ -75,10 +84,9 @@ class RecipesController < ApplicationController
       end
       next unless quantity.positive?
 
-      @shop_list << { name: rf.food.name, quantity:, measurement_unit: rf.food.measurement_unit, shop_price: }
+      shop_list << { name: rf.food.name, quantity: quantity, measurement_unit: rf.food.measurement_unit, shop_price: shop_price }
     end
-    @amount = @shop_list.count
-    @total_price = @shop_list.sum { |item| item[:shop_price] }
+    shop_list
   end
 
   private

@@ -15,10 +15,4 @@
  */
 @import "sessions.css";
 @import "member3.css";
-
-* {
-  font-family: "Gill Sans", sans-serif;
-  text-decoration: none;
-  margin: 0;
-  padding: 0;
-}
+@import "navbar.css";
