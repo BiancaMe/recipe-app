@@ -1,0 +1,22 @@
+<section class='public-recipes'>
+    <h1>Public Recipes</h1>
+    <ul class="public-recipes-list">
+        <% @recipes.each do |recipe| %>
+        <%= link_to recipe_path(recipe.id) do %> 
+            <li class="public-item">
+                <div class = "author-container">
+                    <h2 class="public-title"><%=recipe.name%></h2>
+                    <h3 class="public-author"><%=recipe.user.name%></h3>
+                </div>
+                <div>
+                    <div >Total food items: <%= recipe.recipe_foods.count%></div>
+                    <div >Total price $ <%= recipe.total_price %> </div>
+                </div>
+                <% if can? :destroy, recipe %>
+                <%= button_to "Delete", recipe, method: :delete, class: "p-delete",data: { confirm: 'Are You sure?' } %>
+                <% end %>
+            </li>
+        <% end %> 
+        <% end %>
+      </ul>
+</section>

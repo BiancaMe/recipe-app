@@ -1,0 +1,129 @@
+/* ---- Public Recipes ---- */
+.public-recipes {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 2em;
+  gap: 1em;
+}
+
+.public-recipes-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1em;
+}
+
+.public-item {
+  display: flex;
+  width: 600px;
+  justify-content: space-around;
+  border: 1px solid black;
+  border-radius: 20px;
+  align-items: center;
+  padding: 20px;
+  margin: 5px;
+  color: black;
+}
+
+.author-container {
+  color: black;
+}
+
+.p-delete {
+  background-color: rgba(0, 0, 255, 0.676);
+  font-size: 1em;
+  padding: 0.5em 1em 0.5em 1em;
+  border-radius: 10%;
+  color: rgb(223, 219, 219);
+  border: none;
+}
+
+/* ---- Modal ------- */
+.modal {
+  position: fixed;
+  z-index: 1;
+  padding: 2em;
+  left: 20%;
+  top: 20%;
+  width: 60%;
+  overflow: auto;
+  background-color: rgb(230, 230, 230);
+  border: 1px solid black;
+  text-align: center;
+}
+
+.btn-modal {
+  color: rgb(85, 85, 85);
+  font-family: "Gill Sans", sans-serif;
+  font-size: 1em;
+  text-decoration: none;
+  float: right;
+  margin-bottom: 1em;
+}
+
+.modal-description {
+  text-align: left;
+}
+
+.modal-form {
+  display: flex;
+  justify-content: space-around;
+  font-size: 1em;
+  align-items: center;
+}
+
+.model-select {
+  height: 2em;
+  width: 40%;
+  text-align: center;
+}
+
+.btn-generate {
+  width: 50%;
+}
+
+/* ----Shopping List ---- */
+
+.shopping-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.sl-description {
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+
+.sl-d-label {
+  display: flex;
+  justify-content: space-around;
+}
+
+.sl-d-item {
+  display: flex;
+  justify-content: space-around;
+}
+
+.sl-table {
+  width: 60%;
+  border: 1px solid black;
+  text-align: left;
+  margin: 1em;
+  font-size: 1.2em;
+}
+
+tr {
+  border: 1px solid black;
+}
+
+tr:nth-child(even) {
+  background-color: #d7d7d7;
+}
+
+th {
+  background-color: rgb(104, 104, 104);
+}

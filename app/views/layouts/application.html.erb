@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RecipeApp</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload" %>
+    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
+    <%= javascript_importmap_tags %>
+  </head>
+
+ <body>
+  <% if user_signed_in? %>
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class='nav-item'><a href="/recipes" data-turbolinks-track="true" class='nav-href'>Recipes</a></li>
+        <li class='nav-item'><a href="/public_recipes" data-turbolinks-track="true" class='nav-href'>Public Recipes</a></li>
+        <li class='nav-item'><a href="/inventories" data-turbolinks-track="true" class='nav-href'>Inventories</a></li>
+        <li class='nav-item'><a href="/foods/new" data-turbolinks-track="true" class='nav-href'>Create Food</a></li>
+        <li class='nav-item'><%= button_to "LogOut", destroy_user_session_path, method: :delete, class: "btn-out" %></li>
+      </ul>
+    </nav>
+    <% else %>
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class='nav-item'><%= link_to 'Log In', new_user_session_path,  class: "nav-link text-white"%></li>
+      </ul>
+    </nav>
+   <% end %>
+  <p class="notice"><%= notice %></p>
+  <p class="alert"><%= alert %></p>
+    <%= yield %>
+  </body>
+</html>
